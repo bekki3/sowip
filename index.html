@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sowip</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h3>Hey</h3>
+<div id="inputField">
+    <form id="myForm" action="">
+        City: <input id="cityName"  type="text" placeholder="City name"><br>
+        Auto: <input type="range" min="0" max="1" value="0" step="1" class="slider" id="autoBtn"/><br>
+        Radiation: <input type="range" min="0" max="10" value="0" step="1" class="slider" id="radBtn"/><br>
+        UV Light: <input type="range" min="0" max="10" value="0" step="1" class="slider" id="uvBtn"/><br>
+        <button id="cityNameSbmt" type="submit">Submit</button>
+    </form>
+</div>
+<div id="sunImg">
+    <img src="https://uploads-ssl.webflow.com/5ed8171611a0683a250e530b/5f1c851e4bf7d44408c1af0a_ranger__lamp--bgtrans.png" height="500px" id="levelOne" class=" rubberBand" alt="Level Tiers" />
+</div>
+
+<div id="outputField">
+    <div id="effects">
+        The Effects: <p id="effectsText">Effects here.</p>
+    </div>
+    <div id="tips">
+        The Tips: <p id="tipsText">Tips here.</p>
+    </div>
+</div>
+    <script src="index.js"></script>
+</body>
+</html>
