@@ -1,16 +1,72 @@
+body{
+   color: rgb(255, 255, 255);
+   background-color: rgb(0, 0, 0);
+   font-family: 'Poppins', sans-serif;
+   font-weight: 500;
+   font-size: 20px;
+
+}
+h1{
+    text-align: center;
+}
+
+form input{
+    margin-top: 24px;
+}
 #inpuField{
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0);
+    
 }
-div{
-    margin: 20px;
+
+#cityNameSbmt{
+    margin-left: 110px;
+    margin-top: 28px;
+    color: #0073FE;
+    padding: 8px 14px;
+    border-radius: 14px;
+    border: #0073FE 5px solid;
+    font-size: 20px;
+    cursor: pointer;
 }
+
+
+
+
 #inputField{
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0);
+ 
 }
-#sunImg{
-    border: 1px solid black;
-    padding: 10px;
+
+#img{
+    position: absolute;
+    z-index: -1;
+    left: 200px;
+    width: 70%;
+
+
 }
 #outputField{
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0);
+    position: absolute;
+    right: 0;
+    width: 25%;
+    padding: 10px;
+}
+
+ input[type=text] {
+    height: 24px;
+    margin-top: 14px;
+    color: #0073FE;
+    padding: 8px 14px;
+    border-radius: 14px;
+    border: #0073FE 2px solid;
+}
+
+#effectsText{
+    width: 100%;
+}
+
+.eff{
+    color: #0073FE;
+    font-weight: 900 !important;
 }

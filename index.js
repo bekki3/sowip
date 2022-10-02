@@ -1,8 +1,10 @@
-const radArray = ["No effect, ", "Neglectable effects, ", "Very low effect, ", "Low effect, ", "Possible late effects, ",  "Possible late effects, ", "Possible chromosomal damage, ", "Temporary reduction in white blood cells, ", "Mild radiation sickness within a few hours: vomiting, diarrhea, fatigue; reduction in resistance to infection, ","Serious radiation sickness effects as in 100-200 rem and hemorrhage; exposure is a Lethal Dose to 10-35% of the population after 30 days (LD 10-35/30), ", "Acute illness, early death; LD 60-95/30, ", "Acute illness, early death in days; LD 100/10, "]
-        const uvArray = ["UV Effect","UV Effect","UV Effect","UV Effect","UV Effect","UV Effect","UV Effect","UV Effect","UV Effect","UV Effect","UV Effect",];
+        const radArray = ["No effect, ", "Neglectable effects, ", "Very low effect, ", "Low effect, ", "Possible late effects, ",  "Possible late effects, ", "Possible chromosomal damage, ", "Temporary reduction in white blood cells, ", "Mild radiation sickness within a few hours: vomiting, diarrhea, fatigue; reduction in resistance to infection, ","Serious radiation sickness effects as in 100-200 rem and hemorrhage; exposure is a Lethal Dose to 10-35% of the population after 30 days (LD 10-35/30), ", "Acute illness, early death; LD 60-95/30, ", "Acute illness, early death in days; LD 100/10, "]
+        const uvArray = ["Minimal danger from the sun’s UV rays","Low danger from the sun’s UV rays","Low risk of harm from unprotected sun exposure.","Medium risk of harm from unprotected sun exposure.", "Fair-skinned people may burn in less than 20 minutes","Fair-skinned people may burn in less than 10 minutes","High risk of harm from unprotected sun exposure","Change in cells","Skin cancer","Skin, Brain Cancer","Skin, Brain Cancer",];
+        const tipsArray = ["wear glasses", "wear glasses", "wear glasses, hat", "wear glasses, hat, shirt", "wear glasses, hat, shirt", "wear glasses, hat, shirt", "wear glasses, hat, shirt", "wear glasses, hat, shirt or stay home", "wear glasses, hat, shirt. Avoid direct rays","Preferably stay home", "Stay home",];
         const myForm = document.getElementById("myForm");
         const effectsText = document.querySelector("#effectsText");
         const autoBtn = document.querySelector("#autoBtn")
+        const tipsText = document.querySelector("#tipsText");
         const cityName = document.querySelector("#cityName");
         const radBtn = document.querySelector("#radBtn");
         const uvBtn = document.querySelector("#uvBtn");
@@ -10,6 +12,7 @@ const radArray = ["No effect, ", "Neglectable effects, ", "Very low effect, ", "
         const calFunc= (rad, uv)=>{
             effectsText.innerHTML=radArray[rad];
             effectsText.innerHTML += uvArray[uv];
+            tipsText.innerHTML = tipsArray[rad];
             console.log(rad, uv);
         }
         function handleForm(event) 
