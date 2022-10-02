@@ -8,7 +8,8 @@ const radArray = ["No effect, ", "Neglectable effects, ", "Very low effect, ", "
         const uvBtn = document.querySelector("#uvBtn");
         const cityNameSbmt = document.querySelector("#cityNameSbmt");
         const calFunc= (rad, uv)=>{
-            effectsText.innerHTML=radArray[rad]+uvArray[uv];
+            effectsText.innerHTML=radArray[rad];
+            effectsText.innerHTML += uvArray[uv];
             console.log(rad, uv);
         }
         function handleForm(event) 
@@ -33,16 +34,20 @@ const radArray = ["No effect, ", "Neglectable effects, ", "Very low effect, ", "
                 fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly&appid=894ad7ca060150b2598c6a437439b1d3`)
                 .then((response) => response.json())
                 .then((data) => {
-                    uvTmp=Math.round(data.current.uvi*2);
-                    uvBtn.value= data.current.uvi*2;
-                    console.log("UV Light: ", Math.round(data.current.uvi*2))});
+                    uvTmp=Math.round(data.current.uvi*1.5);
+                    uvBtn.value= data.current.uvi*1.5;
+                    console.log("UV Light: ", Math.round(data.current.uvi*2))
+                    fetch(`https://developer.nrel.gov/api/solar/solar_resource/v1.json?api_key=PFDPeoOSdPtFbghdkmLRY4iIl06T79bA70gjl97d&lat=40&lon=-105`)
+                    .then((response)=> response.json())
+                    .then((data)=> {
+                        radTmp=Math.round(data.outputs.avg_dni.monthly.oct);
+                        radBtn.value = data.outputs.avg_dni.monthly.oct;
+                        console.log("Radiation: ", Math.round(data.outputs.avg_dni.monthly.oct))
+                        calFunc(radTmp ,uvTmp);
+                    })
+                });
 
-                fetch(`https://developer.nrel.gov/api/solar/solar_resource/v1.json?api_key=PFDPeoOSdPtFbghdkmLRY4iIl06T79bA70gjl97d&lat=40&lon=-105`)
-                .then((response)=> response.json())
-                .then((data)=> {
-                    radTmp=Math.round(data.outputs.avg_dni.monthly.oct);
-                    radBtn.value = data.outputs.avg_dni.monthly.oct;
-                    console.log("Radiation: ", Math.round(data.outputs.avg_dni.monthly.oct))})
+                
 
 
 
@@ -50,7 +55,7 @@ const radArray = ["No effect, ", "Neglectable effects, ", "Very low effect, ", "
                 // // fetch("http://api.openweathermap.org/data/2.5/solar_radiation/forecast?lat=4.2105&lon=101.9758&appid={API key}")
                 // // .then((response) => response.json())
                 // // .then((data) => console.log(data));
-                calFunc(radTmp, uvTmp);
+                
             })
             .catch(error => {
             //element.parentElement.innerHTML = `Error: ${error}`;
